@@ -26,6 +26,18 @@ LLM_CATEGORIZED_PATH = "data/processed/categorized_llm_enriched.csv"
 REPORTS_PATH = "data/reports/"
 CATEGORIES_JSON_PATH = "categories.json"
 
+def ensure_directories():
+    """Create all necessary directories if they don't exist"""
+    directories = [
+        "data" / "raw",
+        "data" / "processed"
+    ]
+    
+    for directory in directories:
+        directory.mkdir(parents=True, exist_ok=True)
+
+
+
 # LLM settings
 LLM_THRESHOLD = 0.7
 

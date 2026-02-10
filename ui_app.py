@@ -12,9 +12,10 @@ from pathlib import Path
 current_dir = Path(__file__).parent
 parent_dir = current_dir.parent
 sys.path.append(str(parent_dir))
-
+from src.config import ensure_directories
 # Import your existing modules
 try:
+    ensure_directories()
     from src.config import (
         RAW_DATA_PATH, PREPROCESSED_PATH, FINAL_CATEGORIZED_PATH,
         LLM_THRESHOLD, COHERE_API_KEY, GOOGLE_API_KEY
