@@ -15,7 +15,7 @@ sys.path.append(str(parent_dir))
 from src.config import ensure_directories
 # Import your existing modules
 try:
-    ensure_directories()
+    
     from src.config import (
         RAW_DATA_PATH, PREPROCESSED_PATH, FINAL_CATEGORIZED_PATH,
         LLM_THRESHOLD, COHERE_API_KEY, GOOGLE_API_KEY
@@ -283,6 +283,7 @@ def render_upload_tab():
                     if save_uploaded_file(uploaded_file):
                         # Run pipeline
                         success = run_backend_pipeline()
+                        st.session_state.pipeline_state['raw_uploaded']=True
                         if success:
                             st.success("✅ Processing complete!")
                             st.rerun()
@@ -429,7 +430,7 @@ def render_analytics_tab():
     
     if df is not None and 'DATE' in df.columns and 'AMOUNT' in df.columns:
         try:
-            df['DATE'] = pd.to_datetime(df['DATE'])
+            # df['DATE'] = pd.to_datetime(df['DATE'])
             df['Month'] = df['DATE'].dt.strftime('%Y-%m')
             
             monthly_summary = df.groupby(['Month', 'DIRECTION'])['AMOUNT'].sum().abs().unstack().fillna(0)
@@ -500,14 +501,8 @@ def render_ai_assistant_tab():
     
     questions = [
         "How much total did I spend?",
-        "How much did I spend on food category?",
         "What are my top 5 expenses?",
-        "Show me my spending by month",
-        "How much did I save this month?",
-        "What are my recurring payments?",
-        "Show me all transactions with MEHTABBIR",
         "What's my average transaction amount?",
-        "How much did I spend on transport?",
         "What's my total income vs expenses?"
     ]
     
@@ -598,14 +593,14 @@ def render_ai_assistant_tab():
         """)
     
     # Debug info (hidden by default)
-    with st.expander("🔧 Debug Info", expanded=False):
-        if st.session_state.pipeline_state['df_categorized'] is not None:
-            st.write(f"DataFrame shape: {st.session_state.pipeline_state['df_categorized'].shape}")
-            st.write(f"Columns: {list(st.session_state.pipeline_state['df_categorized'].columns)}")
+    # with st.expander("🔧 Debug Info", expanded=False):
+    #     if st.session_state.pipeline_state['df_categorized'] is not None:
+    #         st.write(f"DataFrame shape: {st.session_state.pipeline_state['df_categorized'].shape}")
+    #         st.write(f"Columns: {list(st.session_state.pipeline_state['df_categorized'].columns)}")
             
-            # Show sample of data that agent will work with
-            st.write("Sample data (first 5 rows):")
-            st.dataframe(st.session_state.pipeline_state['df_categorized'][['DATE', 'COUNTERPARTY_NAME', 'CATEGORY', 'AMOUNT', 'DIRECTION']].head())
+    #         # Show sample of data that agent will work with
+    #         st.write("Sample data (first 5 rows):")
+    #         st.dataframe(st.session_state.pipeline_state['df_categorized'][['DATE', 'COUNTERPARTY_NAME', 'CATEGORY', 'AMOUNT', 'DIRECTION']].head())
 def render_export_tab():
     """Export tab content"""
     st.header("📥 Export Data")
