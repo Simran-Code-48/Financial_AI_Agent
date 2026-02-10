@@ -1,19 +1,21 @@
-# Banking Analyzer
+# Banking Analyzer AI
 
-A comprehensive banking transaction analysis system that processes, categorizes, and provides insights into financial transactions.
+A powerful bank statement analyzer with AI-powered categorization and natural language querying.
 
-## Features
+## 🚀 Live Demo
+[![Streamlit App](https://static.streamlit.io/badges/streamlit_badge_black_white.svg)](https://your-app-name.streamlit.app)
 
-1. **Preprocessing**: Parses ICICI bank statement particulars and normalizes transaction amounts
-2. **Categorization**: 
-   - Rule-based categorization using keywords
-   - LLM-based categorization for ambiguous transactions
-3. **Agent**: Interactive agent for querying and analyzing transaction data
-4. **Visualization**: Supports data analysis and plotting
+## ✨ Features
 
-## Setup
+- **Automatic Categorization**: Rule-based + AI-powered transaction categorization
+- **Natural Language Queries**: Ask questions about your spending in plain English
+- **Interactive Visualizations**: Beautiful charts and insights
+- **Multi-Bank Support**: ICICI, HDFC, SBI format support
+- **Export Options**: Download processed data and reports
 
-1. Clone the repository
-2. Install dependencies:
-   ```bash
-   pip install -r requirements.txt
+## 🛠️ Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/yourusername/banking-analyzer.git
+cd banking-analyzer

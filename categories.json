@@ -1,0 +1,45 @@
+{
+  "FOOD": [
+    "zomato",
+    "swiggy",
+    "domino",
+    "pizza",
+    "restaurant",
+    "hotel",
+    "cafe"
+  ],
+  "TRANSPORT": [
+    "uber",
+    "ola",
+    "rapido",
+    "metro",
+    "bus",
+    "irctc",
+    "rail"
+  ],
+  "SHOPPING": [
+    "amazon",
+    "flipkart",
+    "myntra",
+    "ajio"
+  ],
+  "BILLS": [
+    "electric",
+    "electricity",
+    "airtel",
+    "jio",
+    "vi",
+    "broadband",
+    "fiber",
+    "gas",
+    "water"
+  ],
+  "SUBSCRIPTION": [
+    "netflix",
+    "spotify",
+    "prime",
+    "hotstar",
+    "youtube"
+  ],
+  "USER_DEFINED": {}
+}
