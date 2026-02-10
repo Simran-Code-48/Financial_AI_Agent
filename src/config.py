@@ -29,14 +29,14 @@ CATEGORIES_JSON_PATH = "categories.json"
 def ensure_directories():
     """Create all necessary directories if they don't exist"""
     directories = [
-        "data" / "raw",
-        "data" / "processed"
+        "data/raw",
+        "data/processed"
     ]
     
     for directory in directories:
-        directory.mkdir(parents=True, exist_ok=True)
+        os.makedirs(directory, exist_ok=True)
 
-
+ensure_directories()
 
 # LLM settings
 LLM_THRESHOLD = 0.7
